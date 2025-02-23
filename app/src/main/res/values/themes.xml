@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Vidcall" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="android:colorPrimary">@color/primary</item>
+        <item name="android:colorSecondary" tools:ignore="NewApi">@color/secondary</item>
+    </style>
+
+    <style name="Theme.Vidcall" parent="Base.Theme.Vidcall" />
+</resources>

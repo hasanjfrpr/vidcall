@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.fragments.ContactFragment">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout_contact"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_contact_fragmenet"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_contact_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:title="My Online Contacts"
+            app:layout_scrollFlags="scroll|enterAlways"
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rc_contact_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        />
+
+    <LinearLayout
+        android:id="@+id/empty_contact_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_person"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="مخاطب آنلاینی وجود ندارد"/>
+    </LinearLayout>
+
+</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_videoCall"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:weightSum="15"
+        android:keepScreenOn="true">
+
+
+        <FrameLayout
+            android:id="@+id/frame_video_call"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="13">
+
+
+            <org.webrtc.SurfaceViewRenderer
+                android:id="@+id/remote_view_call_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <org.webrtc.SurfaceViewRenderer
+                android:id="@+id/local_view_call_fragment"
+                android:layout_width="120dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="8dp"
+                android:clickable="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:elevation="16dp" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:backgroundTint="@android:color/secondary_text_light"
+            android:id="@+id/controls"
+            android:background="@color/lightGreen"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_weight="2"
+            android:layout_height="0dp">
+            <ImageView
+                android:id="@+id/mic_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="12dp"
+                android:background="@drawable/circle_background"
+                app:backgroundTint="@color/cardview_dark_background"
+                app:srcCompat="@drawable/ic_baseline_mic_24" />
+            <ImageView
+                android:id="@+id/video_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="12dp"
+                android:background="@drawable/circle_background"
+                app:backgroundTint="@color/cardview_dark_background"
+                app:srcCompat="@drawable/ic_baseline_videocam_24" />
+            <ImageView
+                android:id="@+id/end_call_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="12dp"
+                android:background="@drawable/circle_background"
+                app:backgroundTint="@android:color/holo_red_dark"
+                app:srcCompat="@drawable/ic_baseline_call_end_24" />
+            <ImageView
+                android:id="@+id/switch_camera_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="12dp"
+                android:background="@drawable/circle_background"
+                app:backgroundTint="@color/cardview_dark_background"
+                app:srcCompat="@drawable/ic_baseline_cameraswitch_24" />
+            <ImageView
+                android:id="@+id/audio_output_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_margin="16dp"
+                android:padding="12dp"
+                android:background="@drawable/circle_background"
+                app:backgroundTint="@color/cardview_dark_background"
+                app:srcCompat="@drawable/ic_baseline_speaker_up_24" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_incomingCall"
+            android:background="@color/darkGrey"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="116dp"
+                android:background="@drawable/rounded_shape"
+                android:contentDescription="TODO"
+                android:src="@drawable/ic_person"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/grey" />
+
+            <TextView
+                android:id="@+id/txt_username_imcoming_call_fragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Ahmad"
+                android:textSize="24sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+
+            <TextView
+                android:id="@+id/txt_incoming_voice_call_fragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Incoming Voice Call ..."
+                android:textColor="@color/grey"
+                android:textSize="16sp"
+                android:visibility="visible"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/txt_username_imcoming_call_fragment"
+                app:layout_constraintStart_toStartOf="@+id/txt_username_imcoming_call_fragment"
+                app:layout_constraintTop_toBottomOf="@+id/txt_username_imcoming_call_fragment" />
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="@+id/txt_incoming_voice_call_fragment"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="@+id/txt_incoming_voice_call_fragment"
+                app:layout_constraintTop_toBottomOf="@+id/txt_incoming_voice_call_fragment"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/incoming_arrow" />
+
+            <ImageView
+
+                android:id="@+id/accept_incoming_fragment"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginEnd="76dp"
+                android:layout_marginBottom="112dp"
+                android:background="@drawable/rounded_shape"
+                android:backgroundTint="@color/lightGreen"
+                android:padding="8dp"
+                android:src="@drawable/ic_voice_call"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:tint="@color/black" />
+
+            <ImageView
+                android:id="@+id/decline_incoming_call_fragment"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginBottom="112dp"
+                android:background="@drawable/rounded_shape"
+                android:backgroundTint="@color/lightRed"
+                android:padding="8dp"
+                android:src="@drawable/ic_end_call"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/accept_incoming_fragment"
+                app:layout_constraintHorizontal_bias="0.226"
+                app:layout_constraintStart_toStartOf="parent"
+                app:tint="@color/black" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
